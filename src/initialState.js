@@ -31,6 +31,7 @@ export function addInningPositions(scorecard) {
                 <option value="strikeOut">K</option>
                 <option value="strikeOutLooking">ꓘ</option>
                 <option value="fieldersChoice">FC</option>
+                <option value="out">Out</option>
             </select>
             <input type="text" class="other" placeholder="Other">
         `;
