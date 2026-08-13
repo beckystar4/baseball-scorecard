@@ -4,14 +4,12 @@ import { navigationListener } from "./events/navigation.js";
 import { dragAndDropListener } from "./events/reorder.js";
 import { addRowsToScorecard } from "./events/scoreCard.js";
 
-// Add inning positions to the original DH row
-
 const scorecards = document.querySelectorAll(".scorecard");
 
 scorecards.forEach(scorecard => {
     addInningPositions(scorecard);
     dragAndDropListener(scorecard);
+    addRowsToScorecard(scorecard);
+    baseUpdater(scorecard);
 });
 navigationListener();
-// addRowsToScorecard();
-// baseUpdater();

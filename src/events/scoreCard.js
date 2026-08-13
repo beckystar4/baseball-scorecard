@@ -1,6 +1,6 @@
 
-export function addRowsToScorecard(){
-    const inningRow = document.getElementById("scoresRow");
+export function addRowsToScorecard(scorecard){
+    const inningRow = scorecard.querySelector(".scoresRow");
     for(let i=0; i<12; i++){
         const cell = document.createElement("td");
         cell.innerHTML = `
@@ -10,14 +10,14 @@ export function addRowsToScorecard(){
             </div>
     `   ;
         const runsInput = cell.querySelector(".runs");
-        runsInput.addEventListener("input", updateTotalRuns);
+        runsInput.addEventListener("input", () => {updateTotalRuns(scorecard)});
         inningRow.appendChild(cell);
     }
 }
 
-function updateTotalRuns(){
-    const runsInput = document.querySelectorAll(".runs");
-    const totalRuns = document.getElementById("totalRunsValue");
+function updateTotalRuns(scorecard){
+    const runsInput = scorecard.querySelectorAll(".runs");
+    const totalRuns = scorecard.querySelector(".totalRunsValue");
     let total = 0;
     runsInput.forEach(input => {
         total+=Number(input.value) || 0;
