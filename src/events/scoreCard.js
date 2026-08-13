@@ -5,7 +5,7 @@ export function addRowsToScorecard(scorecard){
         const cell = document.createElement("td");
         cell.innerHTML = `
             <div class="score-inputs">
-                <input type="number" min="0" max="20" class="hits" placeholder="Hits">
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="20" class="hits" placeholder="Hits">
                 <input type="number" min="0" max="20" class="runs" placeholder="Runs">
             </div>
     `   ;
