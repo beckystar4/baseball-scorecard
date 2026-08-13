@@ -62,5 +62,9 @@ export const positionImages = {
     fieldersChoice: {
         src: "assets/FC.png",
         alt: "Fielder's Choice"
+    }, 
+    out: {
+        src: "assets/Out.png",
+        alt: "Out"
     }
 };
