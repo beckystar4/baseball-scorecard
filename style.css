@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+
+    font-family: Arial, sans-serif;
+
+    background: #e8e8e8;
+    color: #222;
+}
+
+
+/* -------------------------
+   SCOREBOOK
+------------------------- */
+
+.scorebook {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    background: #f8f8f8;
+
+    border: 1px solid #aaa;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+}
+
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+.scorebook-header {
+    padding: 15px 25px;
+
+    background: #1d3557;
+    color: white;
+}
+
+.scorebook-header h1 {
+    margin: 0;
+}
+
+
+/* -------------------------
+   TEAM TABS
+------------------------- */
+
+.team-tabs {
+    display: flex;
+
+    padding: 15px 20px 0;
+
+    background: #d6d6d6;
+
+    gap: 5px;
+}
+
+
+/* Individual tab */
+
+.team-tab {
+    padding: 12px 35px;
+
+    border: 1px solid #aaa;
+    border-bottom: none;
+
+    border-radius: 8px 8px 0 0;
+
+    background: #b8b8b8;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: #333;
+}
+
+
+/* Hover */
+
+.team-tab:hover {
+    background: #c9c9c9;
+}
+
+
+/* Active tab */
+
+.team-tab.active {
+    background: #f8f8f8;
+
+    color: #1d3557;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* -------------------------
+   SCORECARD
+------------------------- */
+
+.scorecard {
+    padding: 25px;
+
+    background: #f8f8f8;
+}
+
+
+/* -------------------------
+   TEAM INFO
+------------------------- */
+
+.team-info {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.team-info label {
+    font-weight: bold;
+}
+
+#team-name {
+    padding: 8px 10px;
+
+    width: 250px;
+
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    font-size: 16px;
+}
+
+
+/* -------------------------
+   TABLES
+------------------------- */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    margin-bottom: 20px;
+
+    background: white;
+}
+
+
+th,
+td {
+    border: 1px solid #555;
+
+    padding: 5px;
+
+    text-align: center;
+}
+
+
+/* Header */
+
+th {
+    background: #1d3557;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+/* PO column */
+
+#positions th:first-child,
+#positions td:first-child {
+    width: 100px;   
+    white-space: nowrap;
+}
+
+
+/* Player column */
+
+#positions th:nth-child(2),
+#positions td:nth-child(2) {
+    width: 180px;
+}
+
+
+/* Inputs */
+
+input {
+    width: 100%;
+
+    padding: 6px;
+    border: 1px solid #aaa;
+
+    border-radius: 3px;
+
+    font-size: 13px;
+}
+
+
+/* -------------------------
+   INNING SCORE INPUTS
+------------------------- */
+
+.score-inputs {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.score-inputs input {
+    width: 100%;
+    padding: 4px;
+    font-size: 11px;
+}
+
+
+/* -------------------------
+   TOTAL
+------------------------- */
+
+#totalRunsValue {
+    font-weight: bold;
+    background: #e5e5e5;
+}
+
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .scorecard {
+        padding: 10px;
+    }
+
+    #positions,
+    #inningTotals {
+        font-size: 12px;
+    }
+
+    #positions th:nth-child(2),
+    #positions td:nth-child(2) {
+        width: 120px;
+    }
+
+}
+
+tr[draggable="true"] {
+  cursor: move; /* Changes cursor to a hand/move indicator */
+}
+tr.dragging {
+  opacity: 0.5;
+  background-color: #f0f0f0;
+}
+
+#playerRows tr {
+    cursor: grab;
+}
+
+#playerRows tr:active {
+    cursor: grabbing;
+}
+
+#playerRows tr.dragging {
+    opacity: 0.4;
+    background-color: #dbeafe;
+}
+.drag-handle {
+    cursor: grab;
+    margin-right: 6px;
+    color: #777;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.position-image {
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    margin: 0 auto 4px;
+}
+
+#other {
+    margin-top: 6px;
+}

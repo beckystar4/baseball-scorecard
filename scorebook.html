@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scorebook</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A brief description of your website content.">
+    <meta name="author" content="Your Name">
+    
+    <!-- Link to external CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="module" src="index.js"></script>
+
+</head>
+<body>
+    <!-- Main Content Area -->
+    <main class="scorebook">
+        <header class="scorebook-header">
+            <h1>⚾ Scorebook ⚾</h1>
+        </header>
+
+
+        <!-- TEAM TABS -->
+        <div class="team-tabs">
+
+            <button
+                class="team-tab active"
+                data-team="home">
+                HOME TEAM
+            </button>
+
+            <button
+                class="team-tab"
+                data-team="away">
+                AWAY TEAM
+            </button>
+
+        </div>
+
+        <section class="scorecard">
+            <div class="team-info">
+                <label for="team-name"> Team</label>
+                <input type="text", id="team-name", spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off", placeholder="TEAM NAME">
+            </div>
+            <table id="positions">
+                <thead>
+                     <tr>
+                        <th>PO</th>
+                        <th>Player</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                    </tr>
+                </thead>
+               <tbody id="playerRows">
+                        <tr id="playerRow" draggable="true">
+                            <td class="player-po"><span class="drag-handle">☰</span>DH</td>
+                            <td><input type="text" class="player-name" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off", placeholder="PLAYER NAME"></td>
+                    </tr>
+               </tbody>
+            </table>
+            <table id="inningTotals">
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>Total</th>
+                </tr>
+                <tr id="scoresRow"></tr>
+                <tr id="totalRuns">
+                    <td colspan="12"></td>
+                    <td id="totalRunsValue">0</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
