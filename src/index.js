@@ -10,8 +10,8 @@ const scorecards = document.querySelectorAll(".scorecard");
 
 scorecards.forEach(scorecard => {
     addInningPositions(scorecard);
+    dragAndDropListener(scorecard);
 });
-// dragAndDropListener();
 navigationListener();
 // addRowsToScorecard();
 // baseUpdater();
