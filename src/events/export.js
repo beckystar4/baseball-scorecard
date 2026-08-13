@@ -1,106 +1,94 @@
-export function saveGame() {
+export function printScorebook() {
 
-    const scorecards =
-        document.querySelectorAll(".scorecard");
+    const scorebook = document.querySelector(".scorebook");
 
-    const gameData = {
-        date: new Date().toISOString(),
-        teams: []
-    };
+    if (!scorebook) {
+        return;
+    }
 
-    scorecards.forEach(scorecard => {
-        const team = {
-            name:
-                scorecard
-                    .querySelector(".team-name")
-                    ?.value || "",
+    const printWindow = window.open("", "_blank");
 
-            players: [],
-            innings: []
-        };
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Baseball Scorebook</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    color: #222;
+                    margin: 20px;
+                }
 
-        const rows =
-            scorecard.querySelectorAll(
-                ".playerRows tr"
-            );
+                h1 {
+                    color: #1d3557;
+                }
 
-            rows.forEach(row => {
+                .scorecard {
+                    display: block !important;
+                    margin-bottom: 40px;
+                    page-break-inside: avoid;
+                }
 
-                const playerName = row.querySelector(".player-name")?.value || "";
+                .team-tabs,
+                .scorebook-actions {
+                    display: none;
+                }
 
-                const position = row.querySelector(".player-po")?.textContent.trim() || "";
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                }
 
-                const innings = [];
+                th,
+                td {
+                    border: 1px solid #555;
+                    padding: 5px;
+                    text-align: center;
+                }
 
-                row.querySelectorAll("td").forEach(
-                    (cell, index) => {
+                th {
+                    background: #1d3557;
+                    color: white;
+                }
 
-                        const select = cell.querySelector(".pos");
+                input,
+                select {
+                    border: none;
+                    background: transparent;
+                    text-align: center;
+                }
 
-                        const image = cell.querySelector(".position-image");
+                .position-image {
+                    width: 35px;
+                    height: 35px;
+                }
 
-                        const other = cell.querySelector(".other");
+                @media print {
 
-                        if (!select) return;
-
-                        innings.push({
-                            position:select.value || "",
-                            image: image?.dataset.position || "initial",
-                            other: other?.value || ""
-                        });
-
+                    body {
+                        margin: 0;
                     }
-                );
 
+                    .scorecard {
+                        page-break-after: always;
+                    }
 
-                team.players.push({
-                    name: playerName,
-                    position,
-                    innings
-                });
+                }
 
-            });
+            </style>
 
-        scorecard
-            .querySelectorAll(".runs")
-            .forEach((input, index) => {
+        </head>
 
-                const hitsInput = scorecard.querySelectorAll(".hits")[index];
+        <body>
+            <h1>⚾ Baseball Scorebook ⚾</h1>
+            ${scorebook.innerHTML}
+        </body>
+        </html>
+    `);
 
-                team.innings.push({
-                    inning: index + 1,
-                    hits:
-                        hitsInput?.value || "",
-                    runs:
-                        input.value || ""
-                });
-            });
-        gameData.teams.push(team);
-
-    });
-
-    const json = JSON.stringify(gameData, null,2);
-
-    const blob =
-        new Blob(
-            [json],
-            {
-                type: "application/json"
-            }
-        );
-
-    const url = URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-
-    link.href = url;
-
-    link.download =
-        `baseball-scorebook-${new Date()
-            .toISOString()
-            .slice(0, 10)}.json`;
-
-    link.click();
-
-    URL.revokeObjectURL(url);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
 }
