@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./src/index.js"></script>
 </head>
+<h1>⚾ Baseball Scorebook ⚾</h1>
 <div class="team-tabs">
     <button class="team-tab active" data-team="home">
         HOME TEAM
@@ -15,6 +16,17 @@
     <button class="team-tab" data-team="away">
         AWAY TEAM
     </button>
+</div>
+
+<div class="scorebook-actions">
+    <button id="saveGame">
+        Save Scorebook
+    </button>
+
+    <button id="loadGame">
+        Load Scorebook
+    </button>
+    <input type="file" id="gameFile" accept=".json,application/json" hidden>
 </div>
 
 <!-- HOME SCORECARD -->
