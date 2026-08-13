@@ -3,17 +3,19 @@ import {
     inningPositions
 } from "./constants.js";
 
-export function addInningPositions() {
-    const row = document.getElementById("playerRow");
-    const playerRows = document.getElementById("playerRows");
-    // Add the 12 inning position cells to the template row
+export function addInningPositions(scorecard) {
+
+    const row = scorecard.querySelector(".playerRow");
+    const playerRows = scorecard.querySelector(".playerRows");
+
+    // Add the 12 inning position cells
     for (let i = 0; i < 12; i++) {
 
         const cell = document.createElement("td");
 
         cell.innerHTML = `
             <img 
-                src="assets/Initial.png"
+                src="./assets/Initial.png"
                 class="position-image"
                 data-position="initial"
                 alt="No base"
@@ -30,13 +32,12 @@ export function addInningPositions() {
                 <option value="strikeOutLooking">ꓘ</option>
                 <option value="fieldersChoice">FC</option>
             </select>
-            <input type="text" id="other" placeholder="Other">
+            <input type="text" class="other" placeholder="Other">
         `;
 
         row.appendChild(cell);
     }
 
-    // Create the players
     for (let i = 0; i < pos.length; i++) {
 
         const newRow = row.cloneNode(true);

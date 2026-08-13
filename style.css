@@ -108,9 +108,15 @@ body {
 ------------------------- */
 
 .scorecard {
+    display: none;
+
     padding: 25px;
 
     background: #f8f8f8;
+}
+
+.scorecard.active {
+    display: block;
 }
 
 
@@ -131,10 +137,10 @@ body {
     font-weight: bold;
 }
 
-#team-name {
-    padding: 8px 10px;
-
+.team-name {
     width: 250px;
+
+    padding: 8px 10px;
 
     border: 1px solid #aaa;
     border-radius: 4px;
@@ -147,7 +153,8 @@ body {
    TABLES
 ------------------------- */
 
-table {
+.positions,
+.inningTotals {
     width: 100%;
 
     border-collapse: collapse;
@@ -159,9 +166,10 @@ table {
     background: white;
 }
 
-
-th,
-td {
+.positions th,
+.positions td,
+.inningTotals th,
+.inningTotals td {
     border: 1px solid #555;
 
     padding: 5px;
@@ -170,9 +178,12 @@ td {
 }
 
 
-/* Header */
+/* -------------------------
+   TABLE HEADERS
+------------------------- */
 
-th {
+.positions th,
+.inningTotals th {
     background: #1d3557;
 
     color: white;
@@ -181,34 +192,84 @@ th {
 }
 
 
+/* -------------------------
+   POSITION TABLE COLUMNS
+------------------------- */
+
 /* PO column */
 
-#positions th:first-child,
-#positions td:first-child {
-    width: 100px;   
+.positions th:first-child,
+.positions td:first-child {
+    width: 100px;
+
     white-space: nowrap;
 }
 
 
 /* Player column */
 
-#positions th:nth-child(2),
-#positions td:nth-child(2) {
+.positions th:nth-child(2),
+.positions td:nth-child(2) {
     width: 180px;
 }
 
 
-/* Inputs */
+/* -------------------------
+   INPUTS
+------------------------- */
 
 input {
     width: 100%;
 
     padding: 6px;
-    border: 1px solid #aaa;
 
+    border: 1px solid #aaa;
     border-radius: 3px;
 
     font-size: 13px;
+}
+
+
+/* Team name */
+
+.team-name {
+    width: 250px;
+
+    font-size: 16px;
+}
+
+
+/* Player name */
+
+.player-name {
+    width: 100%;
+}
+
+
+/* Other input */
+
+.other {
+    width: 100%;
+
+    margin-top: 6px;
+}
+
+
+/* -------------------------
+   POSITION SELECT
+------------------------- */
+
+.pos {
+    width: 100%;
+
+    padding: 4px;
+
+    border: 1px solid #aaa;
+    border-radius: 3px;
+
+    background: white;
+
+    font-size: 12px;
 }
 
 
@@ -226,18 +287,77 @@ input {
 
 .score-inputs input {
     width: 100%;
+
     padding: 4px;
+
     font-size: 11px;
 }
 
 
 /* -------------------------
-   TOTAL
+   TOTALS
 ------------------------- */
 
-#totalRunsValue {
+.totalRunsValue {
     font-weight: bold;
+
     background: #e5e5e5;
+}
+
+
+/* -------------------------
+   PLAYER ROWS
+------------------------- */
+
+.playerRows tr {
+    cursor: grab;
+}
+
+.playerRows tr:active {
+    cursor: grabbing;
+}
+
+.playerRows tr[draggable="true"] {
+    cursor: grab;
+}
+
+.playerRows tr.dragging {
+    opacity: 0.4;
+
+    background-color: #dbeafe;
+}
+
+
+/* -------------------------
+   DRAG HANDLE
+------------------------- */
+
+.drag-handle {
+    cursor: grab;
+
+    margin-right: 6px;
+
+    color: #777;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+
+/* -------------------------
+   POSITION IMAGE
+------------------------- */
+
+.position-image {
+    display: block;
+
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    margin: 0 auto 4px;
 }
 
 
@@ -255,58 +375,17 @@ input {
         padding: 10px;
     }
 
-    #positions,
-    #inningTotals {
+    .positions,
+    .inningTotals {
         font-size: 12px;
     }
 
-    #positions th:nth-child(2),
-    #positions td:nth-child(2) {
+    .positions th:nth-child(2),
+    .positions td:nth-child(2) {
         width: 120px;
     }
 
-}
-
-tr[draggable="true"] {
-  cursor: move; /* Changes cursor to a hand/move indicator */
-}
-tr.dragging {
-  opacity: 0.5;
-  background-color: #f0f0f0;
-}
-
-#playerRows tr {
-    cursor: grab;
-}
-
-#playerRows tr:active {
-    cursor: grabbing;
-}
-
-#playerRows tr.dragging {
-    opacity: 0.4;
-    background-color: #dbeafe;
-}
-.drag-handle {
-    cursor: grab;
-    margin-right: 6px;
-    color: #777;
-}
-
-.drag-handle:active {
-    cursor: grabbing;
-}
-
-.position-image {
-    display: block;
-    width: 40px;
-    height: 40px;
-
-    object-fit: contain;
-
-    margin: 0 auto 4px;
-}
-
-#other {
-    margin-top: 6px;
+    .team-name {
+        width: 200px;
+    }
 }
