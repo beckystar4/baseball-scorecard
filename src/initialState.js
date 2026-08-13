@@ -1,7 +1,7 @@
 import {
     pos,
     inningPositions
-} from "../constants.js";
+} from "./constants.js";
 
 export function addInningPositions() {
     const row = document.getElementById("playerRow");

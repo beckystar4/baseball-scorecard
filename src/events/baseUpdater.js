@@ -1,7 +1,7 @@
 import {
     positionImages,
     baseProgression
-} from "../../constants.js";
+} from "../constants.js";
 
 export function baseUpdater(){
     playerRows.addEventListener("change", (event) => {
