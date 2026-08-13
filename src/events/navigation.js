@@ -11,22 +11,20 @@ export function navigationListener() {
 
             // Update tabs
             tabs.forEach(t => {
-                t.classList.remove("active");
+                t.classList.toggle(
+                    "active",
+                    t === tab
+                );
             });
-
-            tab.classList.add("active");
 
             // Update scorecards
             scorecards.forEach(scorecard => {
-                scorecard.classList.remove("active");
+                scorecard.classList.toggle(
+                    "active",
+                    scorecard.dataset.team === team
+                );
             });
 
-            const activeScorecard =
-                document.querySelector(
-                    `.scorecard[data-team="${team}"]`
-                );
-
-            activeScorecard.classList.add("active");
         });
 
     });

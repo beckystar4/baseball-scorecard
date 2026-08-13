@@ -3,7 +3,14 @@ import {
     baseProgression
 } from "../constants.js";
 
-export function baseUpdater(){
+export function baseUpdater(scorecard){
+    const playerRows = scorecard.querySelector(".playerRows");
+
+    if (!playerRows) {
+        console.error("Could not find .playerRows in scorecard");
+        return;
+    }
+    
     playerRows.addEventListener("change", (event) => {
 
         if (!event.target.classList.contains("pos")) {
